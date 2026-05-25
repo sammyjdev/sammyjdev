@@ -9,7 +9,7 @@ Currently at **Avangrid** — payment processing and billing platforms for 400K+
 
 ### Open source
 
-### 🧠 [AXON](https://github.com/SamDev98/axon)
+### 🧠 [AXON](https://github.com/sammyjdev/axon)
 Agent-agnostic context engine that gives AI coding agents continuous memory across sessions, tools, and machines.
 
 Switching between Claude Code, Codex, or Cursor forces every agent to start from scratch. AXON captures context at solidification points — git commits and session boundaries — and surfaces it back via MCP or a `.axon/context.md` fallback, so any agent inherits prior decisions without a re-briefing. Self-hosted, event-driven, running in production with real sessions.
@@ -24,7 +24,7 @@ Switching between Claude Code, Codex, or Cursor forces every agent to start from
 
 ---
 
-### ⚔️ [RPG Master AI](https://github.com/SamDev98/rpg-master-ai)
+### ⚔️ [RPG Master AI](https://github.com/sammyjdev/rpg-master-ai)
 Production-grade RAG system that ingests RPG rulebooks (PDFs) and answers natural language questions in English and Portuguese, with source attribution by page number.
 
 - Qdrant gRPC client: **<1ms** search vs 60ms HTTP baseline
@@ -37,7 +37,7 @@ Production-grade RAG system that ingests RPG rulebooks (PDFs) and answers natura
 
 ---
 
-### 📊 [Claude Usage Bar](https://github.com/SamDev98/claude-usage-bar)
+### 📊 [Claude Usage Bar](https://github.com/sammyjdev/claude-usage-bar)
 Cross-platform menu bar app that surfaces Claude Pro/Max quota usage at a glance.
 
 Single Rust binary that reads the locally stored Claude Code OAuth token, polls the usage endpoint every 5 minutes, and renders 5-hour and weekly rolling limits as a color-coded tray icon with a detailed menu. Shipped for macOS, Linux, and Windows via GitHub Actions.
@@ -51,7 +51,7 @@ Single Rust binary that reads the locally stored Claude Code OAuth token, polls 
 
 ---
 
-### 🧠 [JobFlow AI](https://github.com/SamDev98/jobflow-ai)
+### 🧠 [JobFlow AI](https://github.com/sammyjdev/jobflow-ai)
 Multi-tenant SaaS for job application management with AI-powered resume optimization and Kanban pipeline tracking.
 
 - OpenAI-compatible AI integration via OpenRouter with Redis cache (TTL 7 days) — cuts token cost significantly
