@@ -123,5 +123,6 @@ Latest: [Building RAG in Java 21 — 9 Architecture Trade-offs from a D&D Query 
 ---
 
 📍 João Pessoa, Brazil · Open to US remote · English C2
+
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-sammyjdev-0077B5?style=flat&logo=linkedin)](https://linkedin.com/in/sammyjdev)
 [![Email](https://img.shields.io/badge/Email-samjrdev98@gmail.com-D14836?style=flat&logo=gmail)](mailto:samjrdev98@gmail.com)
