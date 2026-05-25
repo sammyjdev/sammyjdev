@@ -118,6 +118,7 @@ OAuth2 · OIDC · JWT · OWASP · PingOne · Microsoft Entra ID
 
 ## Writing
 I write about AI engineering, Java 21, and distributed systems on [LinkedIn](https://linkedin.com/in/sammyjdev).
+
 Latest: [Building RAG in Java 21 — 9 Architecture Trade-offs from a D&D Query System](https://www.linkedin.com/pulse/building-rag-java-21-9-architecture-trade-offs-dd-query-sammy-junior)
 
 ---
