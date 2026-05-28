@@ -14,11 +14,11 @@ Agent-agnostic context engine that gives AI coding agents continuous memory acro
 
 Switching between Claude Code, Codex, or Cursor forces every agent to start from scratch. AXON captures context at solidification points — git commits and session boundaries — and surfaces it back via MCP or a `.axon/context.md` fallback, so any agent inherits prior decisions without a re-briefing. Self-hosted, event-driven, running in production with real sessions.
 
-- 52.6% reduction in p50 input tokens measured across real sessions (n=7) via selective context retrieval — reproduced by a deterministic 20-round benchmark at 52.3%
+- 57.5% p50 / 91.6% max input-token reduction across n=10 compressed turns in `data/compression/stats.jsonl` (reproducible: `python -m axon.observability.compression_telemetry`); bracketed by a deterministic 20-round benchmark at 52.3%
 - Segregated storage: SQLite as source of truth, Redis as graph cache, Qdrant + mem0 for vector retrieval — Neo4j evaluated and rejected (dec-101)
 - Strictly event-driven capture via session hooks and git actions (post-commit, push, init) — zero idle cost, no background polling (dec-104)
 - Task-based cloud routing: Haiku 4.5 for trivial ops, Sonnet 4.6 for code analysis, Opus 4.7 for architectural reasoning — Ollama (phi3:mini, gemma4) for offline paths
-- 6 ADRs (dec-100 → dec-105), TDD-gated chunker as release barrier, Pydantic v2 domain models throughout
+- 13 ADRs + 15 dec-records (dec-100 → dec-114) with explicit supersession chain; TDD-gated chunker as release barrier; Pydantic v2 domain models throughout
 
 **Stack:** Python 3.11 · MCP (stdio) · SQLite · Redis · Qdrant · mem0 · Pydantic v2 · Ollama · Claude API · pytest
 
@@ -31,7 +31,7 @@ Production-grade RAG system that ingests RPG rulebooks (PDFs) and answers natura
 - 13.7x faster ingestion via batch embedding API
 - bge-m3 multilingual embeddings for EN/PT cross-lingual retrieval
 - OpenAI-compatible REST API — connects to Open WebUI without changes
-- 11 Architecture Decision Records documenting every trade-off
+- 13 Architecture Decision Records documenting every trade-off; ArchUnit test enforces the hexagonal boundary (no Spring AI / Qdrant / PDFBox / JPA imports in the application layer)
 
 **Stack:** Java 21 · Spring Boot 3.3 · Spring AI · Qdrant · PostgreSQL · Ollama · Docker
 
@@ -48,18 +48,6 @@ Single Rust binary that reads the locally stored Claude Code OAuth token, polls 
 - Tray icon generated dynamically from live usage state — green/orange/red thresholds, text label in macOS menu bar
 
 **Stack:** Rust · tao · tray-icon · ureq · serde · GitHub Actions
-
----
-
-### 🧠 [JobFlow AI](https://github.com/sammyjdev/jobflow-ai)
-Multi-tenant SaaS for job application management with AI-powered resume optimization and Kanban pipeline tracking.
-
-- OpenAI-compatible AI integration via OpenRouter with Redis cache (TTL 7 days) — cuts token cost significantly
-- Clerk JWT auth with per-tenant isolation via Spring Security
-- Full CI/CD: Java backend on Fly.io + React frontend on Vercel
-- Demo mode decoupled from backend — runs frontend-only with mock data for portfolio
-
-**Stack:** Java 21 · Spring Boot 3.5 · React 18 · TypeScript · PostgreSQL · Redis · Docker · Clerk
 
 ---
 
