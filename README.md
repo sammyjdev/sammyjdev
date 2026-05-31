@@ -35,6 +35,21 @@ Production-grade RAG system that ingests RPG rulebooks (PDFs) and answers natura
 
 **Stack:** Java 21 · Spring Boot 3.3 · Spring AI · Qdrant · PostgreSQL · Ollama · Docker
 
+Is it actually any good? I built **[GNOMON](https://github.com/sammyjdev/gnomon-eval)** to measure that honestly, and caught the standard LLM-as-judge confidence interval being off by √N.
+
+---
+
+### 📐 [GNOMON](https://github.com/sammyjdev/gnomon-eval)
+Evaluation harness for my RPG Master AI: scores RAG answers with an LLM judge and reports faithfulness + context precision with statistically honest confidence intervals. Offline-first, MIT.
+
+- Caught the standard LLM-as-judge CI as pseudoreplication: running a deterministic judge N times and pooling `cases × runs` inflates `n` and shrinks the interval by √N — `[0.225, 0.775] n=16` (fake) vs `[0.0, 1.0] n=2` (honest). Fix: the case is the replication unit, percentile bootstrap over cases, bounded to [0,1] by construction (ADR-008)
+- Gate compares the CI lower bound, not the mean; exposed as a regression test (exit 0/1)
+- One judge call scores all metrics; cache keyed on the full identity tuple `(case, question, answer, contexts, model, seed, run)` — exact-match-or-miss, no fuzzy keys
+- Offline Ollama judge, zero paid keys on the default path; fail-closed on missing dataset/contexts/seed and on a judge that renamed a JSON key instead of failing
+- Dependency direction enforced by an AST test; 8 ADRs; 77 tests; stdlib-only beyond Pydantic v2
+
+**Stack:** Python 3.11 · Pydantic v2 · Ollama · Docker · pytest · ruff
+
 ---
 
 ### 📊 [Claude Usage Bar](https://github.com/sammyjdev/claude-usage-bar)
