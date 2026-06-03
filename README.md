@@ -1,7 +1,9 @@
 # Hey, I'm Sammy 👋
-Senior AI Engineer based in Brazil, working remotely with US companies for 3+ years.
-I build production LLM systems — RAG pipelines, AI agents, MCP integrations, and context engines — on top of a backend foundation in Java 21 and Spring Boot.
-Currently at **Avangrid** — payment processing and billing platforms for 400K+ energy customers.
+I build production LLM systems, RAG pipelines, AI agents, MCP integrations, context engines, on a full stack foundation in Java 21 / Spring Boot and React/TypeScript. AI Engineer, 3+ years remote with US companies, based in Brazil.
+
+What separates my work: I treat AI systems like real engineering. Every project carries ADRs documenting the trade-offs, releases gate on TDD, and when I wanted to know if my RAG system was actually good, I built an eval harness that caught the standard LLM-as-judge math inflating confidence by √N. My context engine AXON cuts p50 input tokens 57.5% in production.
+
+Currently at **Avangrid**, payment and billing platforms for 400K+ energy customers, where I drove incident detection from 60 minutes to under 10.
 
 ---
 
@@ -93,7 +95,7 @@ AI agent embedded in ClickUp that converts task webhooks and chat events into st
 - Cut API response times **70%** on an ecommerce platform handling 1M+ daily requests (Estée Lauder)
 - Reduced critical incident detection from **60 min → under 10 min** across 400+ microservices (Avangrid)
 - Migrated 10M+ government records into Elasticsearch — data access from **2 min → 10 seconds** (TCU)
-- Led PingOne OAuth2/OIDC integration end to end, delivered in 3 months (Yubico)
+- Drove PingOne OAuth2/OIDC integration end to end, delivered in 3 months (Yubico)
 - Reduced auth defect rates **30%** for a platform serving 60K employees across 180 countries (CNH)
 
 ---
