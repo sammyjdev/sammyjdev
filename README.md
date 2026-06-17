@@ -29,11 +29,11 @@ Switching between Claude Code, Codex, or Cursor forces every agent to start from
 ### ⚔️ [RPG Master AI](https://github.com/sammyjdev/rpg-master-ai)
 Production-grade RAG system that ingests RPG rulebooks (PDFs) and answers natural language questions in English and Portuguese, with source attribution by page number.
 
-- Qdrant gRPC client: **<1ms** search vs 60ms HTTP baseline
-- 13.7x faster ingestion via batch embedding API
+- **9.2× faster ingestion** by batching embeddings (80 chunks → 5 Ollama calls, bge-m3 local) — reproducible benchmark in-repo
+- Qdrant accessed over **gRPC** (architecture choice; on localhost gRPC ≈ REST at ~2.5ms, edge grows under load/concurrency)
 - bge-m3 multilingual embeddings for EN/PT cross-lingual retrieval
 - OpenAI-compatible REST API — connects to Open WebUI without changes
-- 13 Architecture Decision Records documenting every trade-off; ArchUnit test enforces the hexagonal boundary (no Spring AI / Qdrant / PDFBox / JPA imports in the application layer)
+- 14 Architecture Decision Records documenting every trade-off; ArchUnit test enforces the hexagonal boundary (no Spring AI / Qdrant / PDFBox / JPA imports in the application layer)
 
 **Stack:** Java 21 · Spring Boot 3.3 · Spring AI · Qdrant · PostgreSQL · Ollama · Docker
 
