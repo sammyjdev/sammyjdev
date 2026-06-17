@@ -1,7 +1,7 @@
 # Hey, I'm Sammy 👋
 I build production LLM systems, RAG pipelines, AI agents, MCP integrations, context engines, on a full stack foundation in Java 21 / Spring Boot and React/TypeScript. AI Engineer, 3+ years remote with US companies, based in Brazil.
 
-What separates my work: I treat AI systems like real engineering. Every project carries ADRs documenting the trade-offs, releases gate on TDD, and when I wanted to know if my RAG system was actually good, I built an eval harness that caught the standard LLM-as-judge math inflating confidence by √N. My context engine AXON cuts p50 input tokens 57.5% in production.
+What separates my work: I treat AI systems like real engineering. Every project carries ADRs documenting the trade-offs, releases gate on TDD, and when I wanted to know if my RAG system was actually good, I built an eval harness that caught the standard LLM-as-judge math inflating confidence by √N. My context engine AXON cuts input tokens 52.3% on a deterministic 20-turn model, with measured compression telemetry at 85.5% p50.
 
 Currently at **Avangrid**, payment and billing platforms for 400K+ energy customers, where I drove incident detection from 60 minutes to under 10.
 
@@ -16,11 +16,11 @@ Agent-agnostic context engine that gives AI coding agents continuous memory acro
 
 Switching between Claude Code, Codex, or Cursor forces every agent to start from scratch. AXON captures context at solidification points — git commits and session boundaries — and surfaces it back via MCP or a `.axon/context.md` fallback, so any agent inherits prior decisions without a re-briefing. Self-hosted, event-driven, running in production with real sessions.
 
-- 57.5% p50 / 91.6% max input-token reduction across n=10 compressed turns in `data/compression/stats.jsonl` (reproducible: `python -m axon.observability.compression_telemetry`); bracketed by a deterministic 20-round benchmark at 52.3%
+- 85.5% p50 / 97.0% max input-token reduction across 69 compressed windows in `data/compression/stats.jsonl` (reproducible: `python -m axon.observability.compression_telemetry`); bracketed by a deterministic 20-round benchmark at 52.3%
 - Segregated storage: SQLite as source of truth, Redis as graph cache, Qdrant + mem0 for vector retrieval — Neo4j evaluated and rejected (dec-101)
 - Strictly event-driven capture via session hooks and git actions (post-commit, push, init) — zero idle cost, no background polling (dec-104)
 - Task-based cloud routing: Haiku 4.5 for trivial ops, Sonnet 4.6 for code analysis, Opus 4.7 for architectural reasoning — Ollama (phi3:mini, gemma4) for offline paths
-- 13 ADRs + 15 dec-records (dec-100 → dec-114) with explicit supersession chain; TDD-gated chunker as release barrier; Pydantic v2 domain models throughout
+- 13 ADRs + 17 dec-records (dec-100 → dec-116) with explicit supersession chain; TDD-gated chunker as release barrier; Pydantic v2 domain models throughout
 
 **Stack:** Python 3.11 · MCP (stdio) · SQLite · Redis · Qdrant · mem0 · Pydantic v2 · Ollama · Claude API · pytest
 
