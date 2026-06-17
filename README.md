@@ -54,6 +54,20 @@ Evaluation harness for my RPG Master AI: scores RAG answers with an LLM judge an
 
 ---
 
+### 🕸️ [GLYPH](https://github.com/sammyjdev/glyph-kg)
+Knowledge-graph library for RAG spanning **document** (LLM extraction) and **code** (tree-sitter) domains behind one extractor port, benchmarked against a fair vector baseline.
+
+Most "graph RAG" demos never prove the graph beats plain vector search. GLYPH builds the graph, builds an honest vector baseline on the same corpus, and measures both with GNOMON — graph wins faithfulness on documents, vector wins on code, and community summaries match quality at ~half the tokens. Reported with bootstrap confidence intervals, not vibes.
+
+- Two extraction adapters behind one `Extractor` port: `DocumentExtractor` (LLM, probabilistic) and `CodeExtractor` (tree-sitter Python + Java, deterministic) — opposite edge-reliability models, one shared graph core (ADR-G1)
+- `GraphStore` port with two real backends: NetworkX default (embedded, pip-installable, zero server) and a Neo4j adapter (openCypher) — both pass the same 14 contract tests, the Neo4j one smoke-tested against Neo4j 5 on Testcontainers
+- Graph-aware retrieval (entity anchoring + neighborhood expansion) + hybrid fusion, scored vs the vector baseline across document (n=25), code (n=14, two independent judges), and global-community (n=8) axes
+- 267 tests, ~98% coverage; 7 ADRs (dec-g1..g7); the `GraphContextSource` boundary is what AXON consumes for graph-aware retrieval (dec-116)
+
+**Stack:** Python 3.11 · Pydantic v2 · NetworkX · Neo4j · tree-sitter · sentence-transformers · GNOMON · pytest
+
+---
+
 ### 📊 [Claude Usage Bar](https://github.com/sammyjdev/claude-usage-bar)
 Cross-platform menu bar app that surfaces Claude Pro/Max quota usage at a glance.
 
