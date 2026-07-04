@@ -1,7 +1,7 @@
 # Hey, I'm Sammy 👋
 I build production LLM systems, RAG pipelines, AI agents, MCP integrations, context engines, on a full stack foundation in Java 21 / Spring Boot and React/TypeScript. AI Engineer, 3+ years remote with US companies, based in Brazil.
 
-What separates my work: I treat AI systems like real engineering. Every project carries ADRs documenting the trade-offs, releases gate on TDD, and when I wanted to know if my RAG system was actually good, I built an eval harness that caught the standard LLM-as-judge math inflating confidence by √N. My context engine AXON cuts input tokens 52.3% on a deterministic 20-turn model, with measured compression telemetry at 85.5% p50.
+What separates my work: I treat AI systems like real engineering. Every project carries ADRs documenting the trade-offs, releases gate on TDD, and when I wanted to know if my RAG system was actually good, I built an eval harness that caught the standard LLM-as-judge math inflating confidence by √N. My context engine AXON measurably cuts input tokens 85.5% at p50 in production telemetry; I retired an earlier 52.3% claim once I found out it was a deterministic model, not a measurement.
 
 Currently at **Avangrid**, payment and billing platforms for 400K+ energy customers, where I drove incident detection from 60 minutes to under 10.
 
@@ -65,20 +65,6 @@ Most "graph RAG" demos never prove the graph beats plain vector search. GLYPH bu
 - 267 tests, ~98% coverage; 7 ADRs (dec-g1..g7); the `GraphContextSource` boundary is what AXON consumes for graph-aware retrieval (dec-116)
 
 **Stack:** Python 3.11 · Pydantic v2 · NetworkX · Neo4j · tree-sitter · sentence-transformers · GNOMON · pytest
-
----
-
-### 📊 [Claude Usage Bar](https://github.com/sammyjdev/claude-usage-bar)
-Cross-platform menu bar app that surfaces Claude Pro/Max quota usage at a glance.
-
-Single Rust binary that reads the locally stored Claude Code OAuth token, polls the usage endpoint every 5 minutes, and renders 5-hour and weekly rolling limits as a color-coded tray icon with a detailed menu. Shipped for macOS, Linux, and Windows via GitHub Actions.
-
-- Portable core with compile-directive isolation for OS-specific concerns (token discovery, login autostart) — only two boundary modules
-- Built on `tao` + `tray-icon`, `ureq` 2.x pinned for HTTP API stability — fully synchronous runtime, ~10 direct dependencies
-- CI matrix covering macOS, Linux, and Windows with a release workflow producing signed `.app` packages and per-OS artifacts
-- Tray icon generated dynamically from live usage state — green/orange/red thresholds, text label in macOS menu bar
-
-**Stack:** Rust · tao · tray-icon · ureq · serde · GitHub Actions
 
 ---
 
