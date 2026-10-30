@@ -22,7 +22,7 @@ AXON captures context at the moments it crystallises (signal commits and session
 - PostgreSQL as the single store with full-text search; SQLite, Redis, Qdrant, mem0 and pgvector evaluated and retired (dec-121), Neo4j rejected (dec-101)
 - Strictly event-driven capture via git hooks and session hooks, zero idle cost (dec-104)
 - Evidence over attachment: the earlier code-search subsystem cut input tokens 90.7% (n=333, committed snapshot) and was retired when usage data showed agents rarely used it (dec-138). The measurements stay in `docs/METRICS.md`
-- 13 ADRs plus 37 decision records with supersession chains; TDD-gated; 1,400+ tests
+- 13 ADRs plus 37 decision records with supersession chains; TDD-gated; 1,517 tests passing
 
 **Stack:** Python 3.11 · MCP (stdio) · PostgreSQL · Pydantic v2 · pytest
 
