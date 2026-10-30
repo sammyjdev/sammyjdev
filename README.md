@@ -1,4 +1,6 @@
 # Hey, I'm Sammy 👋
+**Senior AI Engineer (Forward Deployed)**
+
 I build production LLM systems, RAG pipelines, AI agents, MCP integrations, and the evaluation that gates them, on a full-stack foundation in Java 21 / Spring Boot and React/TypeScript. Senior AI Engineer with seven years of engineering, six of them on distributed systems before my first model call, remote with US companies, based in Brazil.
 
 What separates my work: I treat AI systems like real engineering. Every project carries ADRs documenting the trade-offs, releases gate on TDD, and when I wanted to know if my RAG system was actually good, I built an eval harness that caught the standard LLM-as-judge math inflating confidence by √N. When the numbers say a feature isn't earning its keep, I remove it: AXON's code search cut input tokens 90.7% in a committed snapshot, and I retired it anyway once usage data showed agents went back to grep.
@@ -63,7 +65,7 @@ Most "graph RAG" demos never prove the graph beats plain vector search. GLYPH bu
 - `GraphStore` port with two real backends: NetworkX default (embedded, pip-installable, zero server) and a Neo4j adapter (openCypher) — both pass the same 14 contract tests, the Neo4j one smoke-tested against Neo4j 5 on Testcontainers
 - Cross-encoder reranking improved context precision 80% over the vector baseline (0.72 vs 0.40, GNOMON-benchmarked, 95% CIs); graph-aware retrieval (entity anchoring + neighborhood expansion) + hybrid fusion scored across document (n=25), code (n=14), and global-community (n=8) axes
 - External pre-registered benchmark against graphify (95k stars), N=30, three-judge GNOMON panel: whole-file vectors lost, and symbol-level retrieval came out indistinguishable from graphify on every stratum. On code, the retrieval unit mattered more than the strategy
-- 400+ tests, coverage-gated CI; 8 ADRs (dec-g1..g8)
+- 410 tests passing, coverage-gated CI; 8 ADRs (dec-g1..g8)
 
 **Stack:** Python 3.11 · Pydantic v2 · NetworkX · Neo4j · tree-sitter · sentence-transformers · GNOMON · pytest
 
@@ -101,7 +103,7 @@ AI agent embedded in ClickUp that converts task webhooks and chat events into st
 
 ## Some things I've shipped
 - Cut API response times **70%** on an ecommerce platform handling 1M+ daily requests (Estée Lauder)
-- Reduced critical incident detection from **60 min → under 10 min** across 400+ microservices (Avangrid)
+- Reduced critical incident detection from **60 min → under 10 min** across 400+ microservices (a regulated US energy utility)
 - Migrated 10M+ government records into Elasticsearch — data access from **2 min → 10 seconds** (TCU)
 - Drove PingOne OAuth2/OIDC integration end to end, delivered in 3 months (Yubico)
 - Reduced auth defect rates **30%** for a platform serving 60K employees across 180 countries (CNH)
