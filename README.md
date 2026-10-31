@@ -5,7 +5,7 @@ I build production LLM systems, RAG pipelines, AI agents, MCP integrations, and 
 
 What separates my work: I treat AI systems like real engineering. Every project carries ADRs documenting the trade-offs, releases gate on TDD, and when I wanted to know if my RAG system was actually good, I built an eval harness that caught the standard LLM-as-judge math inflating confidence by √N. When the numbers say a feature isn't earning its keep, I remove it: AXON's code search cut input tokens 90.7% in a committed snapshot, and I retired it anyway once usage data showed agents went back to grep.
 
-Currently at **SJ AI Solutions**, where I own the AI assistant inside a medical reference app used by thousands of healthcare professionals in Brazil, with a versioned evaluation rubric that vetoes answers on safety and grounding. I maintain the open-source stack below (AXON, GNOMON, GLYPH). Previously at **Avangrid**, where I drove incident detection from 60 minutes to under 10 across 400+ microservices.
+Currently at **SJ AI Solutions**, where I own the AI assistant inside a medical reference app used by thousands of healthcare professionals in Brazil, with a versioned evaluation rubric that vetoes answers on safety and grounding. I maintain the open-source stack below (AXON, GNOMON, GLYPH). Previously at a regulated US energy utility, where I drove incident detection from 60 minutes to under 10 across 400+ microservices.
 
 ---
 
